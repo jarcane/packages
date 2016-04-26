@@ -17,7 +17,7 @@
         :license     {"MIT" "http://opensource.org/licenses/MIT"}
         :scm         {:url "https://github.com/cljsjs/packages"}})
 
-(def file-ver [file]
+(defn file-ver [file]
   (str "https://raw.githubusercontent.com/jhudson8/react-chartjs/" +lib-version+ "/dist/" file))
 
 (deftask package []
