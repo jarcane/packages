@@ -17,14 +17,15 @@
         :license     {"MIT" "http://opensource.org/licenses/MIT"}
         :scm         {:url "https://github.com/cljsjs/packages"}})
 
-(def zip-ver (str "https://github.com/jhudson8/react-chartjs/archive/" +lib-version+ ".zip"))
+(def file-ver [file]
+  (str "https://raw.githubusercontent.com/jhudson8/react-chartjs/" +lib-version+ "/dist/" file))
 
 (deftask package []
   (comp
-   (download :url zip-ver
-             :unzip true)
-   (sift :move {#"react-chartjs\.js" "cljsjs/react-chartjs/development/react-chartjs.inc.js"
-                #"react-chartjs\.min\.js" "cljsjs/react-chartjs/production/react-chartjs.min.inc.js"})
+   (download :url (file-ver "react-chartjs.js"))
+   (download :url (file-ver "react-chartjs.min.js"))
+   (sift :move {#"react-chartjs.js" "cljsjs/react-chartjs/development/react-chartjs.inc.js"
+                #"react-chartjs.min.js" "cljsjs/react-chartjs/production/react-chartjs.min.inc.js"})
    (sift :include #{#"^cljsjs"})
    (deps-cljs :name "cljsjs.react-chartjs"
               :requires ["cljsjs.chartjs" "cljsjs.react"])
