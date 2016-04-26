@@ -24,8 +24,8 @@
   (comp
    (download :url "https://raw.githubusercontent.com/jhudson8/react-chartjs/master/dist/react-chartjs.js"
              :unzip true)
-   (sift :move {#"react-chartjs\.js" "cljsjs/reactabular/development/reactabular.inc.js"
-                #"react-chartjs\.min\.js" "cljsjs/reactabular/production/reactabular.min.inc.js"})
+   (sift :move {#"react-chartjs\.js" "cljsjs/react-chartjs/development/react-chartjs.inc.js"
+                #"react-chartjs\.min\.js" "cljsjs/react-chartjs/production/react-chartjs.min.inc.js"})
    (sift :include #{#"^cljsjs"})
    (deps-cljs :name "cljsjs.react-chartjs"
               :requires ["cljsjs.chartjs" "cljsjs.react"])
